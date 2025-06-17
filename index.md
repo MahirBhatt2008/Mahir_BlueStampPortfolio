@@ -1,19 +1,13 @@
 # Game Board Project
 This project is a game board that has multiple different games that you can play, such as tetris. It has a start button, an end button, and 4 different buttons to let the user control what happens in the game. It also has a switch that turns the game board on/off. This project helped me gain better soldering skills.
 
-You should comment out all portions of your portfolio that you have not completed yet, as well as any instructions:
-```HTML 
-<!--- This is an HTML comment in Markdown -->
-<!--- Anything between these symbols will not render on the published site -->
-```
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
 | Mahir B | Homestead High School | Mechanical Engineering | Incoming Senior
 
-**Replace the BlueStamp logo below with an image of yourself and your completed project. Follow the guide [here](https://tomcam.github.io/least-github-pages/adding-images-github-pages-site.html) if you need help.**
 
-![Headstone Image](logo.svg)
+![Headstone Image](gameboardProject.JPG)
   
 # Final Milestone
 
