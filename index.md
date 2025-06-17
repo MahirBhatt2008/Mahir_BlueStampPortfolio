@@ -1,4 +1,4 @@
-# Game Board Project
+# Retro Arcade Console
 This project is a game board that has multiple different games that you can play, such as tetris. It has a start button, an end button, and 4 different buttons to let the user control what happens in the game. It also has a switch that turns the game board on/off. This project helped me gain better soldering skills.
 
 
