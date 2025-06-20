@@ -7,7 +7,7 @@ write a description of portfolio here
 | Mahir B | Homestead High School | Mechanical Engineering | Incoming Senior
 
 
-![Headstone Image](MahirB.PNG)
+![Headstone Image](MahirB.png)
   
 # Final Milestone
 
