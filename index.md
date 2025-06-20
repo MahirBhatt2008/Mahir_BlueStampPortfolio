@@ -1,5 +1,5 @@
-# Retro Arcade Console
-This project is a game board that has multiple different games that you can play, such as tetris. It has a start button, an end button, and 4 different buttons to let the user control what happens in the game. It also has a switch that turns the game board on/off. This project helped me gain better soldering skills.
+# BlueStamp Engineering Portfolio
+write a description of portfolio here
 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
@@ -65,6 +65,8 @@ void loop() {
 
 }
 ```
+
+# Starter Project
 
 # Bill of Materials
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
