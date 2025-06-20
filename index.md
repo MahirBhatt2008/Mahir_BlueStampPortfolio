@@ -68,7 +68,6 @@ void loop() {
 # Starter Project: Retro Arcade Game Console
 This project is a game board that has multiple different games that you can play, such as tetris. It has a start button, an end button, and 4 different buttons to let the user control what happens in the game. It also has a switch that turns the game board on/off. This project helped me gain better soldering skills.
 
-![projectpicture](gameboardProject.JPG)
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/o0hxpk1ZnIw?si=7LS6ZI0-IqPjVep9" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
