@@ -8,7 +8,7 @@ Mahir Bhatt's portfolio for his summer robotics project
 | Mahir B | Homestead High School | Mechanical Engineering | Incoming Senior
 
 
-![Headstone Image](MahirB.png)
+![Headstone Image]<img src="MahirB.png" width="450" height="600">
 
 <!--
 # Final Milestone
