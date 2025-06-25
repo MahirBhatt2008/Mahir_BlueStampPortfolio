@@ -78,9 +78,7 @@ void loop() {
 This project is a game board that has multiple different games that you can play, such as tetris. It has a start button, an end button, and 4 different buttons to let the user control what happens in the game. It also has a switch that turns the game board on/off. This project helped me gain better soldering skills.
 
 # Schematics 
-<!--
-Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser.
--->
+!<img src="schematic.png">
 # Bill of Materials: Retro Arcade Game Console
 <!--
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
