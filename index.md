@@ -1,7 +1,5 @@
-# BlueStamp Engineering Portfolio
+# Optical Character Recognition
 Mahir Bhatt's portfolio for his summer robotics project
-
-# Optical Character Recognition 
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
