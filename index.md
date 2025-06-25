@@ -82,12 +82,21 @@ This project is a game board that has multiple different games that you can play
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
 Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
 -->
-<!--
+
 | **Part** | **Note** | **Price** | **Link** |
-|:--:|:--:|:--:|:--:|-->
+|:--:|:--:|:--:|:--:|
 | Buzzer | Emits sound for alerts or signals | $1.48 | <a href="https://www.digikey.com/en/products/detail/soberton-inc/WST-1206UX/1245302?gad_source=1&gad_campaignid=20243136172&gbraid=0AAAAADrbLlhY9M3nUqqsyarwc_qMKusEt&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJYYXGsf0jUZqDOTA14y7Kia2LQ5VwkYhJalravyX4HI_ZBvEOm5KtRoCokkQAvD_BwE&gclsrc=aw.ds"> Link </a> |
 | Electric capacitor | Stores and releases electrical energy | $0.38 | <a href="https://www.digikey.com/en/products/detail/panasonic-electronic-components/EEU-FR1C221/2433527?gad_source=1&gad_campaignid=20228387720&gbraid=0AAAAADrbLljx--os3Oc-ERVDq4RA6mW2A&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJXSsvPe9yKVBAn13_DxdN-5zDTu3uyHwzF0sb70BZF25uVkIMJZKcBoCeCEQAvD_BwE&gclsrc=aw.ds"> Link </a> |
 | Micro USB | Connector for power or data transfer from a USB source | $1.02 | <a href="https://www.digikey.com/en/products/detail/kycon-inc/KMMX-BSMT35S-B30TR/9990231?gad_source=1&gad_campaignid=17336967819&gbraid=0AAAAADrbLljQ1XEqeAnpBEhhLVvQ0RmOT&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJch7AeIPcqFWGTiXWI_gwZcN-MZE7zZu-pZeO7V634NsiVUDJxhlQRoCIlQQAvD_BwE&gclsrc=aw.ds"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
+| Item Name | What the item is used for | $Price | <a href="https://www.amazon.com/Arduino-A000066-ARDUINO-UNO-R3/dp/B008GRTSV6/"> Link </a> |
 
 <!---
 # Other Resources/Examples
