@@ -1,5 +1,5 @@
 # Optical Character Recognition
-Mahir Bhatt's portfolio for his summer robotics project
+This project is a software-based project, ran through a Raspberry Pi. The Raspberry Pi has a camera which takes picutres and can record live feed and broadcast it to our computers. Using the broadcasts from the Raspberry Pi camera, the Raspberry Pi runs a block of code that looks frame-by-frame for words in each frame. If words are found, the code prints a box around the letters it found and also spells out what it found.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
