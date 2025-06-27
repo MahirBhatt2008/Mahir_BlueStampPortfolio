@@ -20,20 +20,20 @@ For your final milestone, explain the outcome of your project. Key details to in
 - A summary of key topics you learned about
 - What you hope to learn in the future after everything you've learned at BSE
 
-
+-->
 
 # Second Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/gLOUI6KWsCw?si=AAS1u1KE01BpHKdG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/y3VAmNlER5Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+For the second milestone of my Optical Character Recognition project, I focused on creating code that is able to process and detect text in still images that I directly import into my Raspberry Pi files. To do this, I had to create a new code file, which I titled "example.py," and then I followed instructions to create lines of code that would be executed to process the image that I chose. To import the image into my files, I directly downloaded it through my terminal by entering the link to the download. In my code, there is a line of code that resembles which image file you would like to process and find letters in, and I used one that had the word "coffee" in it. When run, this program pops up a window that shows the original "coffee" image, but now the text has a box around it and is the user can clearly see that the program identified this word. However, completing this milestone to it's fullest extent had many road bumps in it. My biggest challenges definitely surrounded environments in python and what they do. When I first ran my code file through the terminal, I recieved an error that told me I had no environment installed. This led me to learn about environments in python and I finally figured out how to create an environment. Essentially, environments are large folders that store all the downloads and files that you create in terminal, so that if you turn the Raspberry Pi off, it will still save the code files that you made and will make them executable.
 
 For your second milestone, explain what you've worked on since your previous milestone. You can highlight:
 - Technical details of what you've accomplished and how they contribute to the final goal
 - What has been surprising about the project so far
 - Previous challenges you faced that you overcame
 - What needs to be completed before your final milestone 
--->
+
 
 # First Milestone
 <iframe width="560" height="315" src="https://www.youtube.com/embed/k87IMUkZeuk?si=inYRWzS7Dl8RDZRU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
