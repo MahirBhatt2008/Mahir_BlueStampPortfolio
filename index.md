@@ -34,6 +34,8 @@ For the second milestone of my Optical Character Recognition project, I focused 
 
 My project is a Optical Character Recognition software that has a camera which looks for characters, and prints what characters the camera saw. To build this project, I first started by setting up my Raspberry Pi, which is the computer that contains the code for the project to work. To set up my Raspberry Pi, I followed a tutorial that helped me compile the parts together for the Pi to work properly, including attatching the Raspberry Pi camera to the motherboard. Then, I connected my Pi to a power source and my computer, and streamed the output of the Pi to a software on my computer called "OBS." My next step was to make the camera take pictures. To do this, I opened a new Python file in my Raspberry Pi software, and entered the proper code to take photos from the camera. These photos are stored as a single file in the Raspberry Pi, meaning each time you take a new photo, that photo overwrites the last photo. Currently, I am in the process of making the camera capture live feed, and brodcast it to my Raspberry Pi. I have found this to be very difficult and have had trouble coding this part.
 
+
+
 <!---
 For your first milestone, describe what your project is and how you plan to build it. You can include:
 - An explanation about the different components of your project and how they will all integrate together
@@ -60,6 +62,23 @@ void loop() {
 }
 ```
 -->
+# Bill of Materials: Optical Character Recognition
+
+| **Part** | **Note** | **Price** | **Link** |
+|:--:|:--:|:--:|:--:|
+| Raspberry Pi 4 Model B | Your mini Linux computer for DIY projects | $64.99 | <a href="https://www.amazon.com/Raspberry-Model-2019-Quad-Bluetooth/dp/B07TC2BK1X?th=1"> Link </a> |
+| 128 GB MicroSD w/ NOOBS | Storage card and easy OS installer | $19.99 | <a href="https://www.amazon.com/SanDisk-256GB-microSDXC-Memory-Adapter/dp/B0B7NV73PJ/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.yNKcpup10tqT9CcKb8PnDULrl_Et5O6A0KgYYEAfNXE7ZdbmJKJVhibcQ6T8EaP_yK-X4LUeL9HHkBLgN6SKL6TGww3sGafspPd_-1WOvT87td_BLjMNneQjHRg89TWjYiAoOycRKej4aJepeN_BrIDdkst9Bhli78oHjeMneNwrP00QVPUaUqHHg2Rwp9uRxC_VDiDcDsYZ4FYHkijCcHX6BK-6VQI4ZQoZc1T7JZ0.OOvu2WH0SQbYyJHKO8izIxLId9V2SdwGSB3Vcd_K77A&dib_tag=se&keywords=micro%2Bsd%2Bcard%2Bnoobs&qid=1751325500&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&th=1"> Link </a> |
+| Premium Black Case | Protective shell for the board | $14.95 | <a href="https://www.canakit.com/raspberry-pi-4-case.html?srsltid=AfmBOooYi6ZjCuYShIj1fiSdtXeKgqXhN7H_k-r8y_y2uD8KjGE6VNqZasA&gQT=2"> Link </a> |
+| USB-C Power Supply | Stable 5 V power source | $9.99 | <a href="https://www.amazon.com/Security-01-Supply-Adapter-Type-C-MLF-C060503000CU/dp/B09JW4QQJ2/ref=asc_df_B09JW4QQJ2?mcid=70b142077f6d3ba5a4a91c2290eacf52&hvocijid=5006807147904740865-B09JW4QQJ2-&hvexpln=73&tag=hyprod-20&linkCode=df0&hvadid=721245378154&hvpos=&hvnetw=g&hvrand=5006807147904740865&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9032183&hvtargid=pla-2281435178338&psc=1"> Link </a> |
+| Micro HDMI Cables | Video/audio output to monitors | $5.00 | <a href="https://www.digikey.com/en/products/detail/raspberry-pi/SC0546/13901220?gad_source=1&gad_campaignid=20232005509&gbraid=0AAAAADrbLlhlQMtTm-U4k-e-370-rDh-a&gclid=Cj0KCQjw64jDBhDXARIsABkk8J7HF2_Wec7qWgNTW8mXrj8_PEnmMJJhGvij_OQmyUZKPjKMMEgaiQIaAohNEALw_wcB&gclsrc=aw.ds"> Link </a> |
+| USB Card Reader | Plug the MicroSD into another PC | $1.71 | <a href="https://www.digikey.com/en/products/detail/olimex-ltd/USB-CARD-READER/21661975?gad_source=1&gad_campaignid=20476884656&gbraid=0AAAAADrbLlgQNRJooZDGbcnfwpwNdfJO0&gclid=Cj0KCQjw64jDBhDXARIsABkk8J76G5qB_mlHWq3WM25y83snYQbc4KI49_Z3Z22QXElqWKD-j3YYxOkaAkMGEALw_wcB&gclsrc=aw.ds"> Link </a> |
+| Raspberry Pi Camera Module 3 | High-resolution camera sensor for photos and video| $25.00 | <a href="https://www.digikey.com/en/products/detail/raspberry-pi/SC1223/17278639?gad_source=1&gad_campaignid=20243136172&gbraid=0AAAAADrbLlg1TS-XsmPOyWTWbG3IDj5kD&gclid=Cj0KCQjw64jDBhDXARIsABkk8J63CVnG0XOs01OUoWEHAgguORU0TDzuxmm2D0jRtcx9m5Zc2gwrUYQaAvwpEALw_wcB&gclsrc=aw.ds"> Link </a> |
+| Raspberry Pi Camera Mount | Bracket or clip to hold the camera at the correct angle | $16.95 | <a href="https://www.pishop.us/product/universal-tilt-adjustable-mount-for-raspberry-pi-camera/?gQT=1"> Link </a> |
+| Raspberry Pi Case Fan | Small cooling fan to keep the CPU from overheating | $2.95 | <a href="https://www.digikey.com/en/products/detail/adafruit-industries-llc/4468/11587354?gad_source=1&gad_campaignid=20228387720&gbraid=0AAAAADrbLljf_6Xr5Bqlbg3YTqk38m3dD&gclid=Cj0KCQjw64jDBhDXARIsABkk8J5OjrNSsO1X3dhUPB1ivOf88ifyHVWDuAuRugesSnYTQOUtVZdq1hwaAtEtEALw_wcB&gclsrc=aw.ds"> Link </a> |
+
+
+
+
 
 # Starter Project: Retro Arcade Game Console
 
@@ -69,6 +88,7 @@ This project is a game board that has multiple different games that you can play
 
 # Schematics 
 <img src="schematic.png">
+
 # Bill of Materials: Retro Arcade Game Console
 <!--
 Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
