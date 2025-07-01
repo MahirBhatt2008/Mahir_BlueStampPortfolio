@@ -143,10 +143,6 @@ This project is a game board that has multiple different games that you can play
 <img src="schematic.png">
 
 # Bill of Materials: Retro Arcade Game Console
-<!--
-Here's where you'll list the parts in your project. To add more rows, just copy and paste the example rows below.
-Don't forget to place the link of where to buy each component inside the quotation marks in the corresponding row after href =. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize this to your project needs. 
--->
 
 | **Part** | **Note** | **Price** | **Link** |
 |:--:|:--:|:--:|:--:|
@@ -170,13 +166,11 @@ Don't forget to place the link of where to buy each component inside the quotati
 | Battery case | Holds AAA batteries to power the circuit | $1.30 | <a href="https://www.digikey.com/en/products/detail/keystone-electronics/2468/303817?gad_source=1&gad_campaignid=20243136172&gbraid=0AAAAADrbLlhY9M3nUqqsyarwc_qMKusEt&gclid=CjwKCAjwvO7CBhAqEiwA9q2YJT7yRUSi8pDn4UK0BVvVHXu7WxZyQFg1bJuosBaRbvbg7rqIeQi0yxoCc-sQAvD_BwE&gclsrc=aw.ds"> Link </a> |
 
 
-
-<!---
-# Other Resources/Examples
-One of the best parts about Github is that you can view how other people set up their own work. Here are some past BSE portfolios that are awesome examples. You can view how they set up their portfolio, and you can view their index.md files to understand how they implemented different portfolio components.
-- [Example 1](https://trashytuber.github.io/YimingJiaBlueStamp/)
-- [Example 2](https://sviatil0.github.io/Sviatoslav_BSE/)
-- [Example 3](https://arneshkumar.github.io/arneshbluestamp/)
-
-To watch the BSE tutorial on how to create a portfolio, click here.
--->
+# Resources Used
+These are the links to all the resources I utilized in completing both my Retro Arcade Game Console and Optical Character Recognition projects to their fullest extent.
+- [ChatGPT]([https://trashytuber.github.io/YimingJiaBlueStamp/](https://chatgpt.com/?model=o4-mini-high))
+- [hackster.io]([https://sviatil0.github.io/Sviatoslav_BSE/](https://www.hackster.io/lewisdiy/build-your-own-game-console-kit-play-the-classic-games-5ca95f))
+- [Tutorials For Raspberry Pi]([https://arneshkumar.github.io/arneshbluestamp/](https://tutorials-raspberrypi.com/raspberry-pi-text-recognition-ocr/))
+- [W3schools](https://www.w3schools.com/)
+- [Google](google.com)
+- [Stack Overflow]([https://arneshkumar.github.io/arneshbluestamp/](https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3))
