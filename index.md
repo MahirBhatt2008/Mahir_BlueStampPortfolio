@@ -11,9 +11,9 @@ This project is a software-based project, ran through a Raspberry Pi. The Raspbe
 
 # Final Milestone
 
-**Don't forget to replace the text below with the embedding for your milestone video. Go to Youtube, click Share -> Embed, and copy and paste the code to replace what's below.**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/-piw2XX-Xe4?si=_hiuRGgAiChjdANE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-For the third and final milestone of my Optical Character Recognition, I creating a program that is able to recognize and highlight text in live camera feeds. Using the code from my second milestone, which was able to detect characters in still and imported images, I altered specific parts to create a live camera feed using the input from my Raspberry Pi camera. When completing this task, I ran into lots of challenges. Most notably, I had difficulty creating a live video feed that was not only very smooth (not glitchy), but also able to detect characters in real time, rather than delayed. In overcoming this challenge, I had creating two seperate code segements: one that had an extremely smooth live video feed, but a slow OCR feature, and another that has a quick OCR execution but a very glitchy camera feed. Using these two codes, I tried making a single code that would incoorperate the essentials of each of the individual codes. Though this may seem easy, accomplishing this task was extremely difficult, as many parts of each code would not fit each other when put together, leading me to have to research more about how OCR and live camera feed really work. 
+For the third and final milestone of my Optical Character Recognition, I created a program that is able to recognize and highlight text in live camera feeds. Using the code from my second milestone, which was able to detect characters in still and imported images, I altered specific parts to create a live camera feed using the input from my Raspberry Pi camera. Specifically, I added the instantiation of my Rasberry Pi to my original milestone 2 code, in order for the code to use the frames from the live camera rather than the imported image. When completing this task, I ran into lots of challenges. Most notably, I had difficulty creating a live video feed that was not only very smooth (not glitchy), but also able to detect characters in real time, rather than delayed. In overcoming this challenge, I had creating two seperate code segements: one that had an extremely smooth live video feed, but a slow OCR feature, and another that had a quick OCR execution but a very glitchy camera feed. Using these two codes, I tried making a single code that would incoorperate the essentials of each of the individual codes. Though this may seem easy, accomplishing this task was extremely difficult, as many parts of each code would not fit each other when put together, leading me to have to research more about how OCR and live camera feed really work. 
 
 # Second Milestone
 
@@ -30,31 +30,92 @@ My project is a Optical Character Recognition software that has a camera which l
 
 
 <!---
-For your first milestone, describe what your project is and how you plan to build it. You can include:
-- An explanation about the different components of your project and how they will all integrate together
-- Technical progress you've made so far
-- Challenges you're facing and solving in your future milestones
-- What your plan is to complete your project
+
 
 # Schematics 
 Here's where you'll put images of your schematics. [Tinkercad](https://www.tinkercad.com/blog/official-guide-to-tinkercad-circuits) and [Fritzing](https://fritzing.org/learning/) are both great resoruces to create professional schematic diagrams, though BSE recommends Tinkercad becuase it can be done easily and for free in the browser. 
-
+-->
 # Code
 Here's where you'll put your code. The syntax below places it into a block of code. Follow the guide [here]([url](https://www.markdownguide.org/extended-syntax/)) to learn how to customize it to your project needs. 
 
-```c++
-void setup() {
-  // put your setup code here, to run once:
-  Serial.begin(9600);
-  Serial.println("Hello World!");
-}
+```Python
+import cv2
+import threading
+import time
+from picamera2 import Picamera2
+import pytesseract
+from pytesseract import Output
+from collections import defaultdict
+# If tesseract isn?t in your PATH, uncomment and set the correct path:
+pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-void loop() {
-  // put your main code here, to run repeatedly:
+anagrams = defaultdict(list)
+with open('/usr/share/dict/words') as f:
+	for w in f:
+		w = w.strip().lower()
+		if w:
+			key = ''.join(sorted(w))
+			anagrams[key].append(w)
 
-}
+# Shared OCR results
+boxes = []
+ocr_lock = threading.Lock()
+
+def ocr_worker(picam2):
+	"""Continuously grab frames, run OCR at ~2 Hz, and store detected boxes."""
+	global boxes
+	while True:
+		frame = picam2.capture_array()
+		gray  = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        	# Downscale to speed up OCR, then preprocess
+		small = cv2.resize(gray, (320, 240))
+		#blur  = cv2.GaussianBlur(small, (5, 5), 0)
+		#_, thresh = cv2.threshold(blur, 150, 255, cv2.THRESH_BINARY_INV)
+
+        	# OCR: single-block, LSTM engine
+		data = pytesseract.image_to_data(small, output_type=Output.DICT, config="--oem 1 --psm 6" )
+
+		new_boxes=[]
+		for i, txt in enumerate(data['text']):
+			conf = int(data['conf'][i])
+			if conf > 60 and txt.strip():
+				raw = txt.strip().lower()
+				sig = ''.join(sorted(raw))
+				display = anagrams[sig][0] if sig in anagrams else txt
+
+				x = data['left'][i]*2
+				y = data['top'][i]*2
+				w = data['width'][i]*2
+				h = data['height'][i]*2
+				new_boxes.append((x,y,w,h,display))
+
+		with ocr_lock:
+			boxes = new_boxes
+			time.sleep(0.5)
+
+cv2.startWindowThread()
+picam2 = Picamera2()
+picam2.configure(picam2.create_preview_configuration(main = {"format":'XRGB8888', "size":(640,480)}))
+picam2.start()
+
+threading.Thread(target=ocr_worker,args=(picam2,), daemon = True).start()
+
+while True:
+	img = picam2.capture_array()
+
+	with ocr_lock:
+		current = list(boxes)
+	for x,y,w,h,text in current:
+		cv2.rectangle(img,(x,y),(x+w,y+h), (0,255,0),2)
+		cv2.putText(img, text, (x,y-5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0,255,0),1)
+
+	cv2.imshow("OCR Camera", img)
+	if cv2.waitKey(1)& 0xFF==ord('q'):
+		break
+cv2.destroyAllWindows()
+
 ```
--->
 # Bill of Materials: Optical Character Recognition
 
 | **Part** | **Note** | **Price** | **Link** |
