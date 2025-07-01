@@ -168,9 +168,9 @@ This project is a game board that has multiple different games that you can play
 
 # Resources Used
 These are the links to all the resources I utilized in completing both my Retro Arcade Game Console and Optical Character Recognition projects to their fullest extent.
-- [ChatGPT]([https://trashytuber.github.io/YimingJiaBlueStamp/](https://chatgpt.com/?model=o4-mini-high))
-- [hackster.io]([https://sviatil0.github.io/Sviatoslav_BSE/](https://www.hackster.io/lewisdiy/build-your-own-game-console-kit-play-the-classic-games-5ca95f))
-- [Tutorials For Raspberry Pi]([https://arneshkumar.github.io/arneshbluestamp/](https://tutorials-raspberrypi.com/raspberry-pi-text-recognition-ocr/))
+- [ChatGPT](https://chatgpt.com/?model=o4-mini-high)
+- [hackster.io](https://www.hackster.io/lewisdiy/build-your-own-game-console-kit-play-the-classic-games-5ca95f)
+- [Tutorials For Raspberry Pi](https://tutorials-raspberrypi.com/raspberry-pi-text-recognition-ocr/)
 - [W3schools](https://www.w3schools.com/)
 - [Google](google.com)
-- [Stack Overflow]([https://arneshkumar.github.io/arneshbluestamp/](https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3))
+- [Stack Overflow](https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3)
