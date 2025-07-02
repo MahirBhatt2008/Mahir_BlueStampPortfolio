@@ -146,6 +146,7 @@ This project is a game board that has multiple different games that you can play
 
 # Schematics 
 <img src="schematic.png">
+<a href="https://www.hackster.io/lewisdiy/build-your-own-game-console-kit-play-the-classic-games-5ca95f"> Link</a>
 
 # Bill of Materials: Retro Arcade Game Console
 
