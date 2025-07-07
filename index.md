@@ -13,7 +13,7 @@ This project is a software-based project, ran through a Raspberry Pi. The Raspbe
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/-piw2XX-Xe4?si=_hiuRGgAiChjdANE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
-# Summary
+## Summary
 For the third and final milestone of my Optical Character Recognition, I created a program that is able to recognize and highlight text in live camera feeds. Using the code from my second milestone, which was able to detect characters in still and imported images, I altered specific parts to create a live camera feed using the input from my Raspberry Pi camera. Specifically, I added the instantiation of my Rasberry Pi to my original milestone 2 code, in order for the code to use the frames from the live camera rather than the imported image. 
 
 # Challenges
