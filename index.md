@@ -1,5 +1,5 @@
 # Optical Character Recognition
-This project is a software-based project, ran through a Raspberry Pi. The Raspberry Pi has a camera which takes picutres and can record live feed and broadcast it to our computers. Using the broadcasts from the Raspberry Pi camera, the Raspberry Pi runs a block of code that looks frame-by-frame for words in each frame. If words are found, the code prints a box around the letters it found and also spells out what it found. When building and coding the project, I faced countless challenges. My biggest challenge, however, was trying to code a feed that both broadcasted a smooth live feed to my computer using the Pi Camera, but also detected the letters and words it found in relatively real time speed. When trying to fix this issue, I had two code files; The first one had a very smooth live feed, but was not able to detect letters anc characters in real time. My second code file was able to instantly detect text and words, but the video feed was very glitch and was unlike the first code file. This fix seems to be easy: combine the two files to create both a smooth feed and a real time text detection. However, I faced many problems, and had to have lots of help trying to combine the code segmenets as certain bits of the two do not align with each other.
+This project is a software-based project, ran through a Raspberry Pi. The Raspberry Pi has a camera which takes picutres and can record live feed and broadcast it to our computers. Using the broadcasts from the Raspberry Pi camera, the Raspberry Pi runs a block of code that looks frame-by-frame for words in each frame. If words are found, the code prints a box around the letters it found and also spells out what it found. When building and coding the project, I faced countless challenges. My biggest challenge, however, was trying to code a feed that both broadcasted a smooth live feed to my computer using the Pi Camera, but also detected the letters and words it found in relatively real time speed. When trying to fix this issue, I had two code files; the first one had a very smooth live feed, but was not able to detect letters and characters in real time. My second code file was able to instantly detect text and words, but the video feed was very glitch and was unlike the first code file. This fix seems to be easy: combine the two files to create both a smooth feed and a real time text detection. However, I faced many problems, and had to have lots of help trying to combine the code segmenets as certain bits of the two did not align with one another.
 
 | **Engineer** | **School** | **Area of Interest** | **Grade** |
 |:--:|:--:|:--:|:--:|
@@ -17,10 +17,118 @@ This project is a software-based project, ran through a Raspberry Pi. The Raspbe
 For the third and final milestone of my Optical Character Recognition, I created a program that is able to recognize and highlight text in live camera feeds. Using the code from my second milestone, which was able to detect characters in still and imported images, I altered specific parts to create a live camera feed using the input from my Raspberry Pi camera. Specifically, I added the instantiation of my Rasberry Pi to my original milestone 2 code, in order for the code to use the frames from the live camera rather than the imported image. 
 
 ## Challenges
-When completing this task, I ran into lots of challenges. Most notably, I had difficulty creating a live video feed that was not only very smooth (not glitchy), but also able to detect characters in real time, rather than delayed. In overcoming this challenge, I had creating two seperate code segements: one that had an extremely smooth live video feed, but a slow OCR feature, and another that had a quick OCR execution but a very glitchy camera feed. Using these two codes, I tried making a single code that would incoorperate the essentials of each of the individual codes. Though this may seem easy, accomplishing this task was extremely difficult, as many parts of each code would not fit each other when put together, leading me to have to research more about how OCR and live camera feed really work. 
+When completing this task, I ran into lots of challenges. Most notably, I had difficulty creating a live video feed that was not only very smooth (not glitchy), but also able to detect characters in real time, rather than delayed. In overcoming this challenge, I had created two seperate code segements: one that had an extremely smooth live video feed, but a slow OCR feature, and another that had a quick OCR execution but a very glitchy camera feed. Using these two codes, I tried making a single code that would incoorperate the essentials of each of the individual codes. Though this may seem easy, accomplishing this task was extremely difficult, as many parts of each code would not fit each other when put together, leading me to have to research more about how OCR and live camera feed really work. 
 
 ## Modifications
-After completing the third and final milestone of my Optical Character Recognition project, I started working on some potential modifications I can add to my project to excell past just the base project. My first modification was to make a frame-freeze feature. This feature will freeze the live video feed on whatever frame it is on when the space bar is pressed. Now, the character recognition software will be run on this frame, and the identification will appear as the screen is still frozen. When enter is pressed, the frame will unfreeze and the live video capture will resume. Initially, when trying to create this feature, the OCR was not great on the frozen frames. I found that the problem was that the text found was too light of a cover, so I tweaked my code to change the camera's color resolution to better identify the characters. My second modification was for the program to create sentences using a random word that is found in the frozen frame. I did this by entering a series of sentence fillers into my code, and choosing one by random. Then, the program will store all the words that the OCR found, and choose one word randomly. Putting these two together, the program makes a sentence and prints it in the terminal. For example, if it found the word "Hello," it may print the sentence "Here is an interesting word: 'Hello.'"
+After completing the third and final milestone of my Optical Character Recognition project, I started working on some potential modifications that I can add to my project to excell past just the base project requirements. My first modification was to make a frame-freeze feature. This feature will freeze the live video feed on whatever frame it is on when the space bar is pressed. Now, the character recognition software will be run on this frame, and the identification will appear as the screen is still frozen. When enter is pressed, the frame will unfreeze and the live video capture will resume. Initially, when trying to create this feature, the OCR was not great on the frozen frames. I found that the problem was that the text found was too light of a cover, so I tweaked my code to change the camera's color resolution to better identify the characters. My second modification was for the program to create sentences using a random word that is found in the frozen frame. I did this by entering a series of sentence fillers into my code, and choosing one by random. Then, the program will store all the words that the OCR found, and choose one word randomly. Putting these two together, the program makes a sentence and prints it in the terminal. For example, if it found the word "Hello," it may print the sentence "Here is an interesting word: 'Hello.'"
+
+## Code for Modifications
+
+```Python
+import cv2
+from picamera2 import Picamera2
+import pytesseract
+from pytesseract import Output
+import random
+
+# If Tesseract isn?t in your PATH, uncomment and adjust:
+# pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
+
+# --- Initialize camera with higher-res preview ---
+picam2 = Picamera2()
+config = picam2.create_preview_configuration(
+    main={"format": 'XRGB8888', "size": (1280, 720)}
+)
+picam2.configure(config)
+picam2.start()
+# Enable continuous autofocus and increase sharpness if supported
+try:
+    picam2.set_controls({
+        "AfMode": 2,         # continuous autofocus
+        "Sharpness": 128     # range 0-255
+    })
+except Exception:
+    pass
+
+# Create CLAHE for local contrast enhancement
+tile_size = (8, 8)
+clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=tile_size)
+
+frozen = False
+frozen_frame = None
+
+cv2.namedWindow("Live Feed", cv2.WINDOW_AUTOSIZE)
+print("Press SPACE to freeze and OCR, ENTER to resume, 'q' to quit.")
+
+while True:
+    if not frozen:
+        frame = picam2.capture_array()
+        display = frame.copy()
+    else:
+        display = frozen_frame.copy()
+
+    cv2.imshow("Live Feed", display)
+    key = cv2.waitKey(1) & 0xFF
+
+    # Quit
+    if key == ord('q'):
+        break
+
+    # Freeze + OCR on SPACE
+    if not frozen and key == ord(' '):
+        frozen = True
+        frozen_frame = frame.copy()
+
+        # 1) Grayscale
+        gray = cv2.cvtColor(frozen_frame, cv2.COLOR_BGR2GRAY)
+        # 2) Contrast enhancement
+        enhanced = clahe.apply(gray)
+
+        # 3) OCR on enhanced image
+        data = pytesseract.image_to_data(
+            enhanced,
+            output_type=Output.DICT,
+            config="--oem 1 --psm 6"
+        )
+
+        # 4) Draw detected text boxes and collect words
+        words_found = []
+        for i, txt in enumerate(data['text']):
+            conf = int(data['conf'][i] or 0)
+            if conf > 60 and txt.strip():
+                x = data['left'][i]
+                y = data['top'][i]
+                w = data['width'][i]
+                h = data['height'][i]
+                words_found.append(txt.strip())
+                cv2.rectangle(frozen_frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+                cv2.putText(
+                    frozen_frame, txt, (x, y-5),
+                    cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2
+                )
+        # 5) Choose a random word and generate a dynamic sentence
+        if words_found:
+            choice = random.choice(words_found)
+            # list of dynamic sentence templates
+            templates = [
+                f"Did you notice the word '{choice}'? It's pretty neat!",
+                f"Looks like '{choice}' popped up on screen.",
+                f"I'm reading the word '{choice}' right now.",
+                f"Here's an interesting word: '{choice}'.",
+                f"The OCR caught '{choice}', how cool is that?"
+            ]
+            sentence = random.choice(templates)
+            print(sentence)
+
+       
+
+    # Unfreeze on ENTER
+    elif frozen and key == 13:
+        frozen = False
+
+cv2.destroyAllWindows()
+
+```
 
 # Second Milestone
 
