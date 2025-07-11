@@ -290,5 +290,4 @@ These are the links to all the resources I utilized in completing both my Retro 
 - [hackster.io](https://www.hackster.io/lewisdiy/build-your-own-game-console-kit-play-the-classic-games-5ca95f)
 - [Tutorials For Raspberry Pi](https://tutorials-raspberrypi.com/raspberry-pi-text-recognition-ocr/)
 - [W3schools](https://www.w3schools.com/)
-- [Google](google.com)
 - [Stack Overflow](https://stackoverflow.com/questions/43069780/how-to-create-virtual-env-with-python-3)
