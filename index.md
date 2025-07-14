@@ -24,6 +24,7 @@ After completing the third and final milestone of my Optical Character Recogniti
 ## Code for Modifications
 
 ```Python
+
 import cv2
 from picamera2 import Picamera2
 import pytesseract
