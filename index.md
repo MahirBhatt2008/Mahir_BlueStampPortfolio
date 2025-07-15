@@ -14,7 +14,7 @@ After completing the third and final milestone of my Optical Character Recogniti
 ## Code for Modifications
 <details>
   <summary><strong>Click to view: Code for Modifications</strong></summary>
-```python
+```Python
 
 import cv2
 from picamera2 import Picamera2
@@ -117,7 +117,6 @@ while True:
         frozen = False
 
 cv2.destroyAllWindows()
-
 </details> ```
 
 # Final Milestone
