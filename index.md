@@ -141,6 +141,8 @@ When completing this task, I ran into lots of challenges. Most notably, I had di
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/gLOUI6KWsCw?si=AAS1u1KE01BpHKdG" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
+<img src="milestone2.png" width="450" height="450">
+
 ## Summary
 For the second milestone of my Optical Character Recognition project, I focused on creating code that is able to process and detect text in still images that I directly import into my Raspberry Pi files. To do this, I had to create a new code file, which I titled "example.py," and then I followed instructions to create lines of code that would be executed to process the image that I chose. To import the image into my files, I directly downloaded it through my terminal by entering the link to the download. In my code, there is a line of code that resembles which image file you would like to process and find letters in, and I used one that had the word "coffee" in it. When run, this program pops up a window that shows the original "coffee" image, but now the text has a box around it and is the user can clearly see that the program identified this word. 
 
