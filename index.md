@@ -117,7 +117,7 @@ while True:
         frozen = False
 
 cv2.destroyAllWindows()
-</details> ```
+</details> <details> <summary><strong>Click to view: Original OCR Code</strong></summary>
 
 # Final Milestone
 
