@@ -12,8 +12,7 @@ This project is a software-based project, ran through a Raspberry Pi. The Raspbe
 After completing the third and final milestone of my Optical Character Recognition project, I started working on some potential modifications that I can add to my project to excell past just the base project requirements. My first modification was to make a frame-freeze feature. This feature will freeze the live video feed on whatever frame it is on when the space bar is pressed. Now, the character recognition software will be run on this frame, and the identification will appear as the screen is still frozen. When enter is pressed, the frame will unfreeze and the live video capture will resume. Initially, when trying to create this feature, the OCR was not great on the frozen frames. I found that the problem was that the text found was too light of a cover, so I tweaked my code to change the camera's color resolution to better identify the characters. My second modification was for the program to create sentences using a random word that is found in the frozen frame. I did this by entering a series of sentence fillers into my code, and choosing one by random. Then, the program will store all the words that the OCR found, and choose one word randomly. Putting these two together, the program makes a sentence and prints it in the terminal. For example, if it found the word "Hello," it may print the sentence "Here is an interesting word: 'Hello.'"
 
 ## Code for Modifications
-<details>
-  <summary><strong>Click to view: Code for Modifications</strong></summary>
+
 ```Python
 
 import cv2
@@ -117,7 +116,9 @@ while True:
         frozen = False
 
 cv2.destroyAllWindows()
-</details> <details> <summary><strong>Click to view: Original OCR Code</strong></summary>
+
+```
+
 
 # Final Milestone
 
