@@ -22,17 +22,16 @@ import pytesseract
 from pytesseract import Output
 import random
 
-# If Tesseract isn?t in your PATH, uncomment and adjust:
-# pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
-# --- Initialize camera with higher-res preview ---
+
+
 picam2 = Picamera2()
 config = picam2.create_preview_configuration(
     main={"format": 'XRGB8888', "size": (1280, 720)}
 )
 picam2.configure(config)
 picam2.start()
-# Enable continuous autofocus and increase sharpness if supported
+
 try:
     picam2.set_controls({
         "AfMode": 2,         # continuous autofocus
@@ -41,7 +40,7 @@ try:
 except Exception:
     pass
 
-# Create CLAHE for local contrast enhancement
+
 tile_size = (8, 8)
 clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=tile_size)
 
@@ -61,28 +60,28 @@ while True:
     cv2.imshow("Live Feed", display)
     key = cv2.waitKey(1) & 0xFF
 
-    # Quit
+    
     if key == ord('q'):
         break
 
-    # Freeze + OCR on SPACE
+    
     if not frozen and key == ord(' '):
         frozen = True
         frozen_frame = frame.copy()
 
-        # 1) Grayscale
+  
         gray = cv2.cvtColor(frozen_frame, cv2.COLOR_BGR2GRAY)
-        # 2) Contrast enhancement
+      
         enhanced = clahe.apply(gray)
 
-        # 3) OCR on enhanced image
+     
         data = pytesseract.image_to_data(
             enhanced,
             output_type=Output.DICT,
             config="--oem 1 --psm 6"
         )
 
-        # 4) Draw detected text boxes and collect words
+       
         words_found = []
         for i, txt in enumerate(data['text']):
             conf = int(data['conf'][i] or 0)
@@ -97,10 +96,10 @@ while True:
                     frozen_frame, txt, (x, y-5),
                     cv2.FONT_HERSHEY_SIMPLEX, 0.75, (0, 255, 0), 2
                 )
-        # 5) Choose a random word and generate a dynamic sentence
+        
         if words_found:
             choice = random.choice(words_found)
-            # list of dynamic sentence templates
+            
             templates = [
                 f"Did you notice the word '{choice}'? It's pretty neat!",
                 f"Looks like '{choice}' popped up on screen.",
@@ -113,7 +112,7 @@ while True:
 
        
 
-    # Unfreeze on ENTER
+   
     elif frozen and key == 13:
         frozen = False
 
